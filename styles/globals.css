@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+  body {
+    @apply bg-[#ecf0f3] text-[#1f2937];
+  }
+
+  .input-field {
+    @apply bg-gray-100 text-gray-900 rounded-lg focus:outline-none w-full;
+  }
+
+  .underline-effect {
+    @apply before:w-0 before:h-1 before:absolute before:bottom-0 before:right-0 before:bg-gray-900 before:transition-all before:duration-500 before:delay-100 hover:before:w-full hover:before:left-0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+  button {
+    @apply shadow-xl shadow-gray-400 rounded-full uppercase;
+  }
+
+  input {
+    @apply font-bold;
+  }
+}

@@ -6,9 +6,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.6.0",
+    "axios": "^0.27.2",
     "next": "latest",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.34.2",
+    "react-query": "^3.39.2",
+    "sib-api-v3-sdk": "^8.4.2",
+    "sib-api-v3-typescript": "^2.2.2"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
