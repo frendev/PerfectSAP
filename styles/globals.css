@@ -2,9 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-family: Objectivity, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
+    "Noto Color Emoji";
+  scroll-behavior: smooth;
+}
+
 @layer {
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937];
+    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
+  }
+
+  .custom-img {
+    background-image: url("../public/assets/sap-1.png");
   }
 
   .input-field {

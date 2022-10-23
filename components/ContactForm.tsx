@@ -40,18 +40,22 @@ function ContactForm() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 bg-white shadow-lg p-10 mb-10 w-4/5 mx-auto relative rounded-lg">
+    <div
+      id="contact"
+      className="grid grid-cols-1 lg:grid-cols-4 bg-white shadow-lg p-10 mb-10 w-4/5 mx-auto relative rounded-lg"
+    >
       <div className="lg:col-span-2 lg:mx-10">
-        <div>
-          <h1 className="underline-effect text-center text-3xl font-bold relative w-max mx-auto">
+        <div className="w-max mx-auto">
+          <h1 className="underline-effect text-center text-3xl font-bold relative py-1 mx-auto">
             Do you have any queries?
           </h1>
-          <br></br>
-          <p className="text-center text-xl text-neutral-500">
-            Tell us more about yourself, we'll reach out to you as soon as
-            possible.
-          </p>
         </div>
+
+        <br></br>
+        <p className="text-center text-xl text-neutral-500">
+          Tell us more about yourself, we'll reach out to you as soon as
+          possible.
+        </p>
         <div className="flex justify-center my-10 align-bottom">
           <Image
             width="450px"
@@ -63,7 +67,7 @@ function ContactForm() {
         </div>
       </div>
       <div className="lg:col-span-2">
-        <h2 className="underline-effect relative text-3xl font-bold mb-5 w-max mx-auto text-center">
+        <h2 className="underline-effect relative text-3xl font-bold mb-5 py-1 w-max mx-auto text-center">
           Contact Us
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -77,7 +81,7 @@ function ContactForm() {
                 className={
                   errors.firstName
                     ? "outline-red-300 bg-gray-100 text-gray-900 p-3 rounded-lg w-full"
-                    : "bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none w-full"
+                    : "outline-green-300 bg-gray-100 text-gray-900 p-3 rounded-lg  w-full"
                 }
                 placeholder="First Name"
                 {...register("firstName", {
@@ -86,19 +90,18 @@ function ContactForm() {
                   maxLength: 80,
                 })}
               />
-              {errors && (
-                <FormError
-                  className="block"
-                  message={errors?.firstName?.message}
-                />
-              )}
+              {errors && <FormError message={errors?.firstName?.message} />}
             </div>
             <div className="w-full">
               <label className="text-gray-600 font-semibold uppercase">
                 Last Name
               </label>
               <input
-                className="input-field p-3"
+                className={
+                  errors.lastName
+                    ? "outline-red-300 bg-gray-100 text-gray-900 p-3 rounded-lg w-full"
+                    : "outline-green-300 bg-gray-100 text-gray-900 p-3 rounded-lg  w-full"
+                }
                 placeholder="Last Name"
                 {...register("lastName", {
                   pattern: /^[A-Za-z]*$/,
@@ -117,7 +120,11 @@ function ContactForm() {
               Phone Number
             </label>
             <input
-              className="bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline w-full"
+              className={
+                errors.phoneNumber
+                  ? "outline-red-300 bg-gray-100 text-gray-900 p-3 rounded-lg w-full"
+                  : "outline-green-300 bg-gray-100 text-gray-900 p-3 rounded-lg  w-full"
+              }
               placeholder="Phone number"
               {...register("phoneNumber", {
                 required: "Phone Number is required.",
@@ -142,7 +149,11 @@ function ContactForm() {
               Email
             </label>
             <input
-              className="bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline w-full"
+              className={
+                errors.email
+                  ? "outline-red-300 bg-gray-100 text-gray-900 p-3 rounded-lg w-full"
+                  : "outline-green-300 bg-gray-100 text-gray-900 p-3 rounded-lg w-full"
+              }
               placeholder="Email"
               {...register("email", {
                 required: "Email is required.",

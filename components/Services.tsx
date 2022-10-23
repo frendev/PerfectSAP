@@ -4,8 +4,8 @@ import Card from "./Card";
 function Services() {
   return (
     <div className="p-10">
-      <div>
-        <h1 className="relative text-center uppercase text-4xl mb-10 font-bold underline-effect w-max mx-auto">
+      <div className="w-max mx-auto">
+        <h1 className="relative text-center uppercase text-4xl py-1 mb-10 font-bold underline-effect mx-auto">
           What We Do?
         </h1>
       </div>
