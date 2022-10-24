@@ -8,10 +8,8 @@ import {
   AiOutlineHome,
 } from "react-icons/ai";
 import { MdPeopleOutline } from "react-icons/md";
-import Router, { useRouter } from "next/router";
 
 function Navbar() {
-  const router = useRouter();
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const mobileMenuHandler = () => {
