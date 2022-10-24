@@ -72,8 +72,7 @@ export default async function handler(
     email: `${email}`,
   };
   sendSmtpEmail.to = [
-    // { email: `${SENDINBLUE_TO_EMAIL}`, name: `${SENDINBLUE_TO_NAME}` },
-    { email: "adwait.157@gmail.com", name: "Adwait Gore" },
+    { email: `${SENDINBLUE_TO_EMAIL}`, name: `${SENDINBLUE_TO_NAME}` },
   ];
 
   try {
