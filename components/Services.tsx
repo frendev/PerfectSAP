@@ -1,17 +1,21 @@
 import React from "react";
 import Card from "./Card";
+import teaching from "../public/assets/teaching.png";
+import b2b from "../public/assets/b2b.png";
+import coding from "../public/assets/coding.png";
+import staff from "../public/assets/staff.png";
 
 function Services() {
   return (
     <div className="p-10">
       <div className="w-max mx-auto">
-        <h1 className="relative text-center uppercase text-4xl py-1 mb-10 font-bold underline-effect mx-auto">
+        <h1 className="relative text-center text-4xl py-1 mb-10 font-bold underline-effect mx-auto">
           What We Do?
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4 gap-y-10">
         <div className="grid">
-          <Card>
+          <Card img={b2b} alt="B2B Business Model">
             <h1 className="text-center text-xl font-bold">B2B Model</h1>
             <p className="p-5 text-lg">
               Where we understand the company goal and help them revolutionize
@@ -21,7 +25,7 @@ function Services() {
           </Card>
         </div>
         <div className="grid">
-          <Card>
+          <Card img={teaching} alt="B2C Business Model">
             <h1 className="text-center text-xl font-bold">B2C Model</h1>
             <p className="p-5 text-lg">
               Every individual student has a different career journey.
@@ -32,7 +36,7 @@ function Services() {
           </Card>
         </div>
         <div className="grid">
-          <Card>
+          <Card img={coding} alt="software,coding">
             <h1 className="text-center text-xl font-bold">
               Software Solutions
             </h1>
@@ -45,7 +49,7 @@ function Services() {
           </Card>
         </div>
         <div className="grid">
-          <Card>
+          <Card img={staff} alt="staffing solution">
             <h1 className="text-center text-xl font-bold">
               Staffing Solutions
             </h1>

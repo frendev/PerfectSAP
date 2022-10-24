@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-function Navbar() {
-  const [mobileMenu, setMobileMenu] = useState(false);
+import Router, { useRouter } from "next/router";
 
+function Navbar() {
+  const router = useRouter();
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [currentRoute, setCurrentRoute] = useState("");
+
+  useEffect(() => {
+    setCurrentRoute(window.location.href.split("/")[3]);
+  }, [window.location.href]);
+  console.log(); // Logs `http://localhost:3000/blog/incididunt-ut-lobare-et-dolore`
+
+  // Remaining code of the component
   const mobileMenuHandler = () => {
     setMobileMenu(!mobileMenu);
   };
@@ -20,7 +30,7 @@ function Navbar() {
       ></div>
       <div
         id="/"
-        className="fixed left-0 top-0 w-full h-20 shadow-xl z-[100] opacity-100 bg-slate-50"
+        className="fixed left-0 top-0 w-full h-[100px] shadow-xl z-[100] opacity-100 bg-slate-50"
       >
         <div className="flex m-auto justify-between items-center h-full w-full px-2 2xl:px-16">
           {/* This div is for logo */}
@@ -30,23 +40,31 @@ function Navbar() {
                 className="cursor-pointer items-center"
                 src="/assets/PerfectSAP-Logo.png"
                 alt="perfectsap"
-                width="80"
-                height="75"
+                width="100"
+                height="100"
               />
             </Link>
           </div>
 
           {/* This div is for desktop menu's links */}
 
-          <ul className="hidden sm:flex text-xl">
-            <li className="p-4">
+          <ul className="hidden sm:flex md:text-xl lg:text-2xl">
+            <li className={currentRoute === "" ? "text-orange-400 p-4" : "p-4"}>
               <Link href="/">Home</Link>
             </li>
-            <li className="p-4">
+            <li
+              className={
+                currentRoute === "#about" ? "text-orange-400 p-4" : "p-4"
+              }
+            >
               <Link href="/#about"> About Us </Link>
             </li>
 
-            <li className="p-4">
+            <li
+              className={
+                currentRoute === "#contact" ? "text-orange-400 p-4" : "p-4"
+              }
+            >
               <Link href="/#contact"> Contact Us </Link>
             </li>
           </ul>
@@ -76,20 +94,32 @@ function Navbar() {
             <ul>
               <li
                 onClick={mobileMenuHandler}
-                className="p-4 hover:text-yellow-200 ease-in duration-200"
+                className={
+                  currentRoute === ""
+                    ? "text-yellow-200 p-4"
+                    : "p-4 hover:text-yellow-200 ease-in duration-200"
+                }
               >
                 <Link href="/">Home</Link>
               </li>
               <li
                 onClick={mobileMenuHandler}
-                className="p-4 hover:text-yellow-200 ease-in duration-200"
+                className={
+                  currentRoute === "#about"
+                    ? "text-yellow-200 p-4"
+                    : "p-4 hover:text-yellow-200 ease-in duration-200"
+                }
               >
                 <Link href="/#about">About Us</Link>
               </li>
 
               <li
                 onClick={mobileMenuHandler}
-                className="p-4 hover:text-yellow-200 ease-in duration-200"
+                className={
+                  currentRoute === "#contact"
+                    ? "text-yellow-200 p-4"
+                    : "p-4 hover:text-yellow-200 ease-in duration-200"
+                }
               >
                 <Link href="/#contact"> Contact Us </Link>
               </li>

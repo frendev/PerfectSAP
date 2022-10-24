@@ -1,15 +1,15 @@
 import React from "react";
 
-function AboutUS() {
+function About() {
   return (
     <div
       id="about"
-      className="bg-white py-5 flex flex-col justify-center items-center"
+      className="bg-white flex flex-col justify-center items-center py-10"
     >
       <h1 className="relative text-center text-3xl py-1 font-bold underline-effect w-max mx-auto">
         Why Choose PerfectSAP?
       </h1>
-      <div className="w-4/5  text-xl mt-2">
+      <div className="sm: w-3/4 md:w-3/5  text-xl mt-2">
         <div>
           <p>
             In a world where everyone wants success, only a few do the right
@@ -86,4 +86,4 @@ function AboutUS() {
   );
 }
 
-export default AboutUS;
+export default About;

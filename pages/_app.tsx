@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <div>
         <Navbar />
-        <Component {...pageProps} />
+        <Component {...pageProps} className="h-screen" />
         <Footer />
       </div>
     </QueryClientProvider>
