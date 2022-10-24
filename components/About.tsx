@@ -9,9 +9,9 @@ function About() {
       <h1 className="relative text-center text-3xl py-1 font-bold underline-effect w-max mx-auto">
         Why Choose PerfectSAP?
       </h1>
-      <div className="sm: w-3/4 md:w-3/5  text-xl mt-2">
+      <div className="sm: w-3/4 md:w-3/5 text-xl mt-2">
         <div>
-          <p>
+          <p className="text-center">
             In a world where everyone wants success, only a few do the right
             thing and grab the opportunity that life gives them, to achieve it. 
             We PerfectSAP bring an agile way of learning SAP. We are certainly

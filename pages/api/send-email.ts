@@ -16,9 +16,6 @@ export default async function handler(
     SEND_IN_BLUE_API_KEY
   );
 
-  for (let i = 1; i <= 100000; i++) {
-    console.log("hi");
-  }
   let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
   sendSmtpEmail.subject = "Enquiry Regarding Perfect SAP";
@@ -37,6 +34,7 @@ export default async function handler(
       message: "Email has been sent successfully.",
     });
   } catch (error) {
+    console.log("error");
     return res.status(400).json({
       message: "Something went wrong.",
     });

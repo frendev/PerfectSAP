@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
@@ -7,14 +7,7 @@ import Router, { useRouter } from "next/router";
 function Navbar() {
   const router = useRouter();
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [currentRoute, setCurrentRoute] = useState("");
 
-  useEffect(() => {
-    setCurrentRoute(window.location.href.split("/")[3]);
-  }, [window.location.href]);
-  console.log(); // Logs `http://localhost:3000/blog/incididunt-ut-lobare-et-dolore`
-
-  // Remaining code of the component
   const mobileMenuHandler = () => {
     setMobileMenu(!mobileMenu);
   };
@@ -49,12 +42,16 @@ function Navbar() {
           {/* This div is for desktop menu's links */}
 
           <ul className="hidden sm:flex md:text-xl lg:text-2xl">
-            <li className={currentRoute === "" ? "text-orange-400 p-4" : "p-4"}>
+            <li
+              className={
+                router.pathname === "/" ? "text-orange-400 p-4" : "p-4"
+              }
+            >
               <Link href="/">Home</Link>
             </li>
             <li
               className={
-                currentRoute === "#about" ? "text-orange-400 p-4" : "p-4"
+                router.pathname === "/#about" ? "text-orange-400 p-4" : "p-4"
               }
             >
               <Link href="/#about"> About Us </Link>
@@ -62,7 +59,7 @@ function Navbar() {
 
             <li
               className={
-                currentRoute === "#contact" ? "text-orange-400 p-4" : "p-4"
+                router.pathname === "/#contact" ? "text-orange-400 p-4" : "p-4"
               }
             >
               <Link href="/#contact"> Contact Us </Link>
@@ -94,32 +91,20 @@ function Navbar() {
             <ul>
               <li
                 onClick={mobileMenuHandler}
-                className={
-                  currentRoute === ""
-                    ? "text-yellow-200 p-4"
-                    : "p-4 hover:text-yellow-200 ease-in duration-200"
-                }
+                className="p-4 hover:text-yellow-200 ease-in duration-200"
               >
                 <Link href="/">Home</Link>
               </li>
               <li
                 onClick={mobileMenuHandler}
-                className={
-                  currentRoute === "#about"
-                    ? "text-yellow-200 p-4"
-                    : "p-4 hover:text-yellow-200 ease-in duration-200"
-                }
+                className="p-4 hover:text-yellow-200 ease-in duration-200"
               >
                 <Link href="/#about">About Us</Link>
               </li>
 
               <li
                 onClick={mobileMenuHandler}
-                className={
-                  currentRoute === "#contact"
-                    ? "text-yellow-200 p-4"
-                    : "p-4 hover:text-yellow-200 ease-in duration-200"
-                }
+                className="p-4 hover:text-yellow-200 ease-in duration-200"
               >
                 <Link href="/#contact"> Contact Us </Link>
               </li>

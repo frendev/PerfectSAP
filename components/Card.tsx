@@ -6,8 +6,8 @@ function Card(props: any) {
     <div className="transition ease-in-out duration-200 hover:scale-105 flex flex-col justify-self-center bg-white shadow-xl rounded-3xl w-4/5">
       <div className="mx-auto py-2">
         <Image
-          width="128"
-          height="128"
+          width="128px"
+          height="128px"
           layout="intrinsic"
           src={props.img}
           alt={props.alt}
