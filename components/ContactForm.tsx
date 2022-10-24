@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import ContactUsIllustration from "../public/assets/contact.jpg";
 import { useForm } from "react-hook-form";
 import FormError from "./FormError";
@@ -32,15 +32,10 @@ function ContactForm() {
     console.log("The mail has not been sent.");
   };
 
-  const { isLoading, data, isError, isSuccess, mutate } = useMutation(
-    sendEmail,
-    {
-      onSuccess,
-      onError,
-    }
-  );
-
-  console.log(isLoading, data, isError);
+  const { isLoading, mutate } = useMutation(sendEmail, {
+    onSuccess,
+    onError,
+  });
 
   const onSubmit = async (data: any) => {
     mutate(data);
@@ -169,7 +164,7 @@ function ContactForm() {
             </label>
             <textarea
               className="bg-gray-100 text-gray-900 mb-3 p-3 rounded-lg focus:outline-none focus:shadow-outline w-full"
-              placeholder="Message"
+              placeholder="Tell us more about your requirements...."
               rows={5}
               {...register("message")}
             />
@@ -178,7 +173,7 @@ function ContactForm() {
           {isLoading ? (
             <button
               type="button"
-              className="cursor-not-allowed uppercase text-md font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline disabled:opacity-50"
+              className="cursor-not-allowed uppercase text-md font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline opacity-50"
             >
               Submit
             </button>

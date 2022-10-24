@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { SEND_IN_BLUE_API_KEY } from "../../config/envs";
+import {
+  SENDINBLUE_API_KEY,
+  SENDINBLUE_TO_EMAIL,
+  SENDINBLUE_TO_NAME,
+} from "../../config/envs";
 
 const SibApiV3Sdk = require("sib-api-v3-typescript");
 
@@ -9,22 +13,67 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { firstName, lastName, email, phoneNumber, message } = req.body;
-  console.log(firstName, lastName, email, phoneNumber, message);
+  let { firstName, lastName, email, phoneNumber, message } = req.body;
+
+  if (message === "") {
+    message = "Enquiry email.";
+  }
+
   apiInstance.setApiKey(
     SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-    SEND_IN_BLUE_API_KEY
+    SENDINBLUE_API_KEY
   );
 
   let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
   sendSmtpEmail.subject = "Enquiry Regarding Perfect SAP";
-  sendSmtpEmail.htmlContent = `<html><body><h1>This is my first transactional email ${phoneNumber}</h1></body></html>`;
+  sendSmtpEmail.htmlContent = `<html>
+    <head>
+     <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+     </style>
+  </head>
+  <body>
+     <h3> Hi, You have got a new mail. </h3>
+     <table>
+        <tr>
+           <td>Name of the Sender </td>
+           <td>${firstName} ${lastName}</td>
+        </tr>
+        <tr>
+           <td>Email</td>
+           <td>${email}</td>
+        </tr>
+        <tr>
+           <td>Contact Number</td>
+           <td>+91 ${phoneNumber}</td>
+        </tr>
+        <tr>
+           <td>Message</td>
+           <td>${message}</td>
+        </tr>
+     </table>
+  </body>
+</html>`;
   sendSmtpEmail.sender = {
     name: `${firstName} ${lastName}`,
     email: `${email}`,
   };
-  sendSmtpEmail.to = [{ email: "adwait.157@gmail.com", name: "Adwait Gore" }];
+  sendSmtpEmail.to = [
+    { email: `${SENDINBLUE_TO_EMAIL}`, name: `${SENDINBLUE_TO_NAME}` },
+  ];
 
   try {
     const response = await apiInstance.sendTransacEmail(sendSmtpEmail);

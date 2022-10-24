@@ -8,11 +8,12 @@ html {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
     "Noto Color Emoji";
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 @layer {
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937];
+    @apply bg-[#ecf0f3] text-[#1f2937] h-[];
   }
 
   .custom-img {

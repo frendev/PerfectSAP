@@ -12,9 +12,9 @@ function Success() {
         <title>Perfect SAP</title>
         <link rel="icon" href="/assets/PerfectSAP.ico" />
       </Head>
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center">
         <div>
-          <div className="flex flex-col items-center space-y-5">
+          <div className="flex flex-col justify-center items-center space-y-5 h-screen">
             <Image
               width="128px"
               height="128px"
@@ -23,8 +23,7 @@ function Success() {
             ></Image>
             <h1 className="text-4xl font-bold">Thank You !</h1>
             <p className="text-xl">
-              Thank you for your interest! We will get back to you as soon as
-              possible.
+              We got your mail! We will get back to you as soon as possible.
             </p>
             <button className="bg-blue-500 text-xl p-3 rounded text-white flex items-center">
               <span>

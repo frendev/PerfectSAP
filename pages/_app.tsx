@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }}
         ></SEO>
         <Navbar />
-        <Component {...pageProps} className="h-screen" />
+        <Component {...pageProps} />
         <Footer />
       </div>
     </QueryClientProvider>
