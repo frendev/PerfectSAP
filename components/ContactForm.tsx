@@ -28,9 +28,7 @@ function ContactForm() {
   const onSuccess = () => {
     Router.push("/success");
   };
-  const onError = () => {
-    console.log("The mail has not been sent.");
-  };
+  const onError = () => {};
 
   const { isLoading, mutate } = useMutation(sendEmail, {
     onSuccess,

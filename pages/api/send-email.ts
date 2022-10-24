@@ -16,7 +16,7 @@ export default async function handler(
   let { firstName, lastName, email, phoneNumber, message } = req.body;
 
   if (message === "") {
-    message = "Enquiry email.";
+    message = "Enquiry Email.";
   }
 
   apiInstance.setApiKey(
@@ -72,7 +72,8 @@ export default async function handler(
     email: `${email}`,
   };
   sendSmtpEmail.to = [
-    { email: `${SENDINBLUE_TO_EMAIL}`, name: `${SENDINBLUE_TO_NAME}` },
+    // { email: `${SENDINBLUE_TO_EMAIL}`, name: `${SENDINBLUE_TO_NAME}` },
+    { email: "adwait.157@gmail.com", name: "Adwait Gore" },
   ];
 
   try {
@@ -83,7 +84,6 @@ export default async function handler(
       message: "Email has been sent successfully.",
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({
       message: "Something went wrong.",
     });
