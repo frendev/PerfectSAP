@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  AiOutlineMenu,
-  AiOutlineClose,
-  AiOutlinePhone,
-  AiOutlineHome,
-} from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from "react-icons/ai";
 import { MdPeopleOutline } from "react-icons/md";
+import { BiPhone } from "react-icons/bi";
+import DesktopLink from "./DesktopNavLink";
+import MobileNavLink from "./MobileNavLink";
 
 function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -27,37 +25,34 @@ function Navbar() {
       ></div>
       <div
         id="/"
-        className="fixed left-0 top-0 w-full h-[100px] shadow-xl z-[100] opacity-100 bg-slate-50"
+        className="fixed left-0 top-0 w-full h- shadow-xl z-[49] opacity-100 bg-slate-50"
       >
         <div className="flex m-auto justify-between items-center h-full w-full px-2 2xl:px-16">
           {/* This div is for logo */}
-          <div>
+          <div className="flex justify-center">
             <Link href="/">
               <Image
                 className="cursor-pointer items-center"
-                src="/assets/PerfectSAP-Logo.png"
+                src="/assets/PS1.png"
                 alt="perfectsap"
-                width="100"
-                height="100"
+                width="250"
+                height="80"
               />
             </Link>
           </div>
 
           {/* This div is for desktop menu's links */}
 
-          <ul className="hidden sm:flex text-xl lg:text-2xl">
-            <li className="flex relative underline-effect mx-4 py-4">
+          <ul className="hidden sm:flex text-xl">
+            <DesktopLink hrefAttr="/" linkText="Home">
               <AiOutlineHome className="mr-2" size={30}></AiOutlineHome>
-              <Link href="/">Home</Link>
-            </li>
-            <li className="flex relative underline-effect mx-4 py-4">
+            </DesktopLink>
+            <DesktopLink hrefAttr="/#about" linkText="About Us">
               <MdPeopleOutline className="mr-2" size={30}></MdPeopleOutline>
-              <Link href="/#about">About Us</Link>
-            </li>
-            <li className="flex relative underline-effect mx-4 py-4">
-              <AiOutlinePhone className="mr-2" size={30}></AiOutlinePhone>
-              <Link href="/#contact">Contact Us</Link>
-            </li>
+            </DesktopLink>
+            <DesktopLink hrefAttr="/#contact" linkText="Contact Us">
+              <BiPhone className="mr-2" size={30}></BiPhone>
+            </DesktopLink>
           </ul>
 
           {/* This div is for mobile menu's divs */}
@@ -83,22 +78,28 @@ function Navbar() {
             }
           >
             <ul>
-              <li onClick={mobileMenuHandler} className="flex items-center p-4">
+              <MobileNavLink
+                mobileMenuHandler={mobileMenuHandler}
+                hrefAttr="/"
+                linkText="Home"
+              >
                 <AiOutlineHome className="mr-2" size={30}></AiOutlineHome>
-                <Link href="/">Home</Link>
-              </li>
-              <li onClick={mobileMenuHandler} className="flex items-center p-4">
-                <MdPeopleOutline
-                  className="align-middle mr-2"
-                  size={30}
-                ></MdPeopleOutline>
-                <Link href="/#about">About Us</Link>
-              </li>
+              </MobileNavLink>
+              <MobileNavLink
+                mobileMenuHandler={mobileMenuHandler}
+                hrefAttr="/#about"
+                linkText="About Us"
+              >
+                <MdPeopleOutline className="mr-2" size={30}></MdPeopleOutline>
+              </MobileNavLink>
 
-              <li onClick={mobileMenuHandler} className="flex items-center p-4">
-                <AiOutlinePhone className="mr-2" size={30}></AiOutlinePhone>
-                <Link href="/#contact"> Contact Us </Link>
-              </li>
+              <MobileNavLink
+                mobileMenuHandler={mobileMenuHandler}
+                hrefAttr="/#contact"
+                linkText="Contact Us"
+              >
+                <BiPhone className="mr-2" size={30}></BiPhone>
+              </MobileNavLink>
             </ul>
           </div>
         </div>

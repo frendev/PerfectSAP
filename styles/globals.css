@@ -3,19 +3,24 @@
 @tailwind utilities;
 
 html {
-  font-family: Objectivity, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
-    "Noto Color Emoji";
+  font-family: Poppins, sans-serif;
+  scroll-padding-top: 80px;
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+strong {
+  font-weight: 600;
 }
 
 @layer {
-  body {
-    @apply bg-[#ecf0f3] text-[#1f2937] h-[];
-  }
-
   .custom-img {
     background-image: url("../public/assets/sap-1.png");
   }
@@ -28,24 +33,12 @@ html {
     @apply before:w-0 before:h-1 before:absolute before:bottom-0 before:right-0 before:bg-gray-900 before:transition-all before:duration-500 before:delay-100 hover:before:w-full hover:before:left-0;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold;
-  }
-
-  h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
-  }
-
-  h2 {
-    @apply text-3xl sm:text-4xl;
-  }
   button {
     @apply shadow-xl shadow-gray-400 rounded-full uppercase;
+  }
+
+  .body-text {
+    @apply text-justify;
   }
 
   input {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import ContactUsIllustration from "../public/assets/contact.jpg";
 import { useForm } from "react-hook-form";
 import FormError from "./FormError";
@@ -7,6 +7,8 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import InputField from "./InputField";
 import Router from "next/router";
+import Modal from "./Modal";
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
 function ContactForm() {
   const {
@@ -14,6 +16,8 @@ function ContactForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
+
+  const [showModal, setShowModal] = useState(false);
 
   const sendEmail = (formValues: any) => {
     const { firstName, lastName, email, phoneNumber, message } = formValues;
@@ -25,10 +29,13 @@ function ContactForm() {
       message,
     });
   };
+
   const onSuccess = () => {
     Router.push("/success");
   };
-  const onError = () => {};
+  const onError = () => {
+    setShowModal(true);
+  };
 
   const { isLoading, mutate } = useMutation(sendEmail, {
     onSuccess,
@@ -39,6 +46,10 @@ function ContactForm() {
     mutate(data);
   };
 
+  const closeModalHandler = () => {
+    setShowModal(false);
+  };
+
   return (
     <div
       id="contact"
@@ -46,28 +57,35 @@ function ContactForm() {
     >
       <div className="lg:col-span-2 lg:mx-10">
         <div className="w-fit mx-auto">
-          <h1 className="relative underline-effect text-center text-3xl font-bold  py-1 mx-auto">
+          <h1 className="relative underline-effect text-center text-3xl py-1 mx-auto">
             Do you have any queries?
           </h1>
         </div>
 
         <br></br>
         <p className="text-center text-xl text-neutral-500">
-          Tell us more about yourself, we'll reach out to you as soon as
-          possible.
+          We would love to respond to your queries and help you succeed.
+          <br />
+          Feel Free to get in touch with us.
         </p>
-        <div className="flex justify-center my-10 align-bottom">
-          <Image
-            width="450"
-            height="450"
-            src={ContactUsIllustration}
-            alt="Image by pikisuperstar on Freepik"
-            className="rounded-full"
-          />
+        <div className="flex justify-center my-10 text-xl ">
+          <ul className="space-y-10">
+            <li className="flex flex-col items-center space-y-2">
+              <AiOutlineMail size={30}></AiOutlineMail>
+              <h1>Email</h1>
+              <p>info@perfectsap.com</p>
+            </li>
+            <li className="flex flex-col items-center space-y-2">
+              <AiOutlinePhone size={30}></AiOutlinePhone>
+              <h1>Phone</h1>
+              <p>+91 9987853815</p>
+              <p>+91 9967813121</p>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="lg:col-span-2">
-        <h2 className="underline-effect relative text-3xl font-bold mb-5 py-1 w-max mx-auto text-center">
+        <h2 className="underline-effect relative text-3xl mb-5 py-1 w-max mx-auto text-center">
           Contact Us
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -161,7 +179,7 @@ function ContactForm() {
               Message
             </label>
             <textarea
-              className="bg-gray-100 text-gray-900 mb-3 p-3 rounded-lg focus:outline-none focus:shadow-outline w-full"
+              className="resize-none bg-gray-100 text-gray-900 mb-3 p-3 rounded-lg focus:outline-none focus:shadow-outline w-full"
               placeholder="Tell us more about your requirements...."
               rows={5}
               {...register("message")}
@@ -183,6 +201,7 @@ function ContactForm() {
               Submit
             </button>
           )}
+          <Modal showModal={showModal} closeModalHandler={closeModalHandler} />
         </form>
       </div>
     </div>
