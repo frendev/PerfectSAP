@@ -33,7 +33,7 @@ function Navbar() {
             <Link href="/">
               <Image
                 className="cursor-pointer items-center"
-                src="/assets/PS1.png"
+                src="/assets/Perfect-SAP-Logo.png"
                 alt="perfectsap"
                 width="250"
                 height="80"
