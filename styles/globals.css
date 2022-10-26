@@ -20,6 +20,10 @@ strong {
   font-weight: 600;
 }
 
+li {
+  list-style: disc;
+}
+
 @layer {
   .custom-img {
     background-image: url("../public/assets/sap-1.png");
@@ -38,7 +42,7 @@ strong {
   }
 
   .body-text {
-    @apply text-justify;
+    @apply text-justify text-lg md:text-xl;
   }
 
   input {

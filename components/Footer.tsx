@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="flex justify-around py-4 bg-slate-600 md:text-lg text-md text-yellow-300">
+    <div className="flex justify-around py-4 bg-slate-600 md:text-lg text-md text-yellow-300 mt-10">
       <div>
         <a target="_blank" href="https://www.freepik.com/">
           Images by FreePik

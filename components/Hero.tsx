@@ -9,9 +9,7 @@ function Hero() {
 
       <div className="container w-4/5 text-white z-[20] flex flex-col items-center md:items-start">
         <h2 className="text-5xl font-bold">PerfectSAP</h2>
-        <p className="py-5 text-3xl underline-offset-5 underline">
-          We Pursue Quality
-        </p>
+        <p className="py-5 text-3xl underline-offset-5">We Pursue Quality</p>
         <button className="bg-yellow-300 p-3 text-black text-2xl rounded-md">
           <Link href="/#contact">Contact US</Link>
         </button>

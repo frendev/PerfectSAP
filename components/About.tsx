@@ -9,7 +9,7 @@ function About() {
       <h1 className="relative text-center py-1 text-3xl underline-effect w-max mx-auto">
         About Us
       </h1>
-      <div className="sm: w-3/4 md:w-3/5 text-xl mt-2">
+      <div className="sm: w-3/4 md:w-3/5 text-lg mt-2">
         <div>
           <p className="body-text">
             In a world where everyone wants success, only a few do the right

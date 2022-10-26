@@ -53,7 +53,7 @@ function ContactForm() {
   return (
     <div
       id="contact"
-      className="grid grid-cols-1 lg:grid-cols-4 bg-white shadow-lg p-10 mb-10 w-4/5 mx-auto relative rounded-lg"
+      className="grid grid-cols-1 lg:grid-cols-4 bg-white shadow-lg p-10 w-4/5 mx-auto relative rounded-lg"
     >
       <div className="lg:col-span-2 lg:mx-10">
         <div className="w-fit mx-auto">

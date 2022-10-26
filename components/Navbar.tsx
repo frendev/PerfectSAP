@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from "react-icons/ai";
 import { MdPeopleOutline } from "react-icons/md";
-import { BiPhone } from "react-icons/bi";
+import { BiPhone, BiBook } from "react-icons/bi";
 import DesktopLink from "./DesktopNavLink";
 import MobileNavLink from "./MobileNavLink";
 
@@ -25,25 +25,23 @@ function Navbar() {
       ></div>
       <div
         id="/"
-        className="fixed left-0 top-0 w-full h- shadow-xl z-[49] opacity-100 bg-slate-50"
+        className="fixed left-0 top-0 w-full shadow-xl z-[49] opacity-100 bg-slate-50"
       >
         <div className="flex m-auto justify-between items-center h-full w-full px-2 2xl:px-16">
           {/* This div is for logo */}
           <div className="flex justify-center">
-            <Link href="/">
-              <Image
-                className="cursor-pointer items-center"
-                src="/assets/Perfect-SAP-Logo.png"
-                alt="perfectsap"
-                width="250"
-                height="80"
-              />
-            </Link>
+            <Image
+              className="cursor-pointer items-center"
+              src="/assets/Perfect-SAP-Logo.png"
+              alt="perfectsap"
+              width="250"
+              height="80"
+            />
           </div>
 
           {/* This div is for desktop menu's links */}
 
-          <ul className="hidden sm:flex text-xl">
+          <ul className="hidden lg:flex text-xl">
             <DesktopLink hrefAttr="/" linkText="Home">
               <AiOutlineHome className="mr-2" size={30}></AiOutlineHome>
             </DesktopLink>
@@ -53,13 +51,16 @@ function Navbar() {
             <DesktopLink hrefAttr="/#contact" linkText="Contact Us">
               <BiPhone className="mr-2" size={30}></BiPhone>
             </DesktopLink>
+            <DesktopLink hrefAttr="/blogs" linkText="Blogs">
+              <BiBook className="mr-2" size={30}></BiBook>
+            </DesktopLink>
           </ul>
 
           {/* This div is for mobile menu's divs */}
           {/* {Mobile Menu Close and Open Icon} */}
           <div
             onClick={mobileMenuHandler}
-            className="cursor-pointer block sm:hidden z-10"
+            className="cursor-pointer block lg:hidden z-10"
           >
             {mobileMenu ? (
               <AiOutlineClose size={30} />
@@ -73,8 +74,8 @@ function Navbar() {
           <div
             className={
               mobileMenu
-                ? "sm:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen bg-gradient-to-r from-white to-slate-200 text-center transition duration-300"
-                : "sm:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen text-center translate-x-full text-white"
+                ? "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen bg-gradient-to-r from-white to-slate-200 text-center transition duration-300"
+                : "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen text-center translate-x-full text-white"
             }
           >
             <ul>
