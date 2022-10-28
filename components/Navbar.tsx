@@ -53,10 +53,10 @@ function Navbar() {
             <DesktopLink hrefAttr="/#contact" linkText="Contact Us">
               <BiPhone className="mr-2" size={30}></BiPhone>
             </DesktopLink>
-            {/* <DesktopLink hrefAttr="/blogs" linkText="Blogs">
+            <DesktopLink hrefAttr="/blogs" linkText="Blogs">
               <BiBook className="mr-2" size={30}></BiBook>
             </DesktopLink>
-            <DesktopLink hrefAttr="/testimonials" linkText="Testimonials">
+            {/*<DesktopLink hrefAttr="/testimonials" linkText="Testimonials">
               <FaQuoteLeft className="mr-2" size={30}></FaQuoteLeft>
             </DesktopLink> */}
           </ul>
@@ -107,13 +107,13 @@ function Navbar() {
                 <BiPhone className="mr-2" size={30}></BiPhone>
               </MobileNavLink>
 
-              {/* <MobileNavLink
+              <MobileNavLink
                 mobileMenuHandler={mobileMenuHandler}
                 hrefAttr="/blogs"
                 linkText="Blogs"
               >
                 <BiBook className="mr-2" size={30}></BiBook>
-              </MobileNavLink> */}
+              </MobileNavLink>
             </ul>
           </div>
         </div>
