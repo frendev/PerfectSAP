@@ -4,6 +4,8 @@ import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from "react-icons/ai";
 import { MdPeopleOutline } from "react-icons/md";
 import { BiPhone, BiBook } from "react-icons/bi";
+import { FaQuoteLeft } from "react-icons/fa";
+
 import DesktopLink from "./DesktopNavLink";
 import MobileNavLink from "./MobileNavLink";
 
@@ -32,7 +34,7 @@ function Navbar() {
           <div className="flex justify-center">
             <Image
               className="cursor-pointer items-center"
-              src="/assets/Perfect-SAP-Logo.png"
+              src="/assets/PS-Logo.png"
               alt="perfectsap"
               width="250"
               height="80"
@@ -41,7 +43,7 @@ function Navbar() {
 
           {/* This div is for desktop menu's links */}
 
-          <ul className="hidden lg:flex text-xl">
+          <ul className="hidden lg:flex text-lg">
             <DesktopLink hrefAttr="/" linkText="Home">
               <AiOutlineHome className="mr-2" size={30}></AiOutlineHome>
             </DesktopLink>
@@ -51,9 +53,12 @@ function Navbar() {
             <DesktopLink hrefAttr="/#contact" linkText="Contact Us">
               <BiPhone className="mr-2" size={30}></BiPhone>
             </DesktopLink>
-            <DesktopLink hrefAttr="/blogs" linkText="Blogs">
+            {/* <DesktopLink hrefAttr="/blogs" linkText="Blogs">
               <BiBook className="mr-2" size={30}></BiBook>
             </DesktopLink>
+            <DesktopLink hrefAttr="/testimonials" linkText="Testimonials">
+              <FaQuoteLeft className="mr-2" size={30}></FaQuoteLeft>
+            </DesktopLink> */}
           </ul>
 
           {/* This div is for mobile menu's divs */}
@@ -75,7 +80,7 @@ function Navbar() {
             className={
               mobileMenu
                 ? "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen bg-gradient-to-r from-white to-slate-200 text-center transition duration-300"
-                : "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen text-center translate-x-full text-white"
+                : "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen text-center translate-x-full bg-gradient-to-r from-white to-slate-200 text-white transition duration-300"
             }
           >
             <ul>
@@ -101,6 +106,14 @@ function Navbar() {
               >
                 <BiPhone className="mr-2" size={30}></BiPhone>
               </MobileNavLink>
+
+              {/* <MobileNavLink
+                mobileMenuHandler={mobileMenuHandler}
+                hrefAttr="/blogs"
+                linkText="Blogs"
+              >
+                <BiBook className="mr-2" size={30}></BiBook>
+              </MobileNavLink> */}
             </ul>
           </div>
         </div>

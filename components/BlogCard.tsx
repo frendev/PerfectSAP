@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import React from "react";
 import { MdOutlineArrowForward } from "react-icons/md";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 
@@ -11,7 +10,7 @@ function BlogCard(props: any) {
 
   return (
     // outline div of the card
-    <div className="grid grid-cols-1 lg:grid-cols-4 bg-white w-3/5 mx-auto shadow-lg">
+    <div className="grid grid-cols-1 lg:grid-cols-4 bg-white mx-auto shadow-lg">
       {/* image div starts */}
       <div className="w-full h-[200px] lg:h-full lg:col-span-1 relative">
         <Image src={blog.imageUrl.url} layout="fill" />
@@ -26,6 +25,12 @@ function BlogCard(props: any) {
           <p className="body-text text-base truncate">
             {documentToPlainTextString(blog.description.json)}
           </p>
+          <p className="flex underline underline-offset-2 flex-shrink-0 md:hidden">
+            <Link href={`/blogs/${blog.slug}`}>Continue Reading</Link>
+            <span>
+              <MdOutlineArrowForward size={25} />
+            </span>
+          </p>
         </div>
         {/* title and description div ends*/}
 
@@ -34,7 +39,7 @@ function BlogCard(props: any) {
           <p className="text-sm text-gray-500 flex-shrink-0">
             {dayjs(blog.sys.publishedAt).format("DD MMMM YYYY [at] hh:mm A")}
           </p>
-          <p className="flex underline underline-offset-2 flex-shrink-0">
+          <p className="underline underline-offset-2 flex-shrink-0 hidden md:flex">
             <Link href={`/blogs/${blog.slug}`}>Continue Reading</Link>
             <span>
               <MdOutlineArrowForward size={25} />

@@ -196,7 +196,7 @@ function ContactForm() {
           ) : (
             <button
               type="submit"
-              className="transition ease-in-out delay-100 uppercase text-md font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
+              className="transition ease-in-out delay-100 uppercase text-md font-bold tracking-wide bg-blue-700  text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline hover:opacity-80"
             >
               Submit
             </button>
