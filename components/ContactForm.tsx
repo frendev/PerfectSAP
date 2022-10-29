@@ -19,7 +19,10 @@ function ContactForm() {
 
   const [showModal, setShowModal] = useState(false);
 
+  console.log(showModal);
+
   const sendEmail = (formValues: any) => {
+    console.log("sending email");
     const { firstName, lastName, email, phoneNumber, message } = formValues;
     return axios.post("/api/send-email", {
       firstName,
@@ -34,6 +37,7 @@ function ContactForm() {
     Router.push("/success");
   };
   const onError = () => {
+    console.log(" i am being called");
     setShowModal(true);
   };
 
@@ -43,11 +47,13 @@ function ContactForm() {
   });
 
   const onSubmit = async (data: any) => {
+    console.log(data);
     mutate(data);
   };
 
   const closeModalHandler = () => {
     setShowModal(false);
+    console.log("hi i am here");
   };
 
   return (

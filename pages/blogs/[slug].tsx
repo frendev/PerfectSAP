@@ -10,7 +10,7 @@ import { getAllBlogs, GET_POST_BY_SLUG } from "../../queries/blogs";
 
 export const getStaticPaths = async () => {
   const res = await getAllBlogs();
-  console.log(res);
+  // console.log(res);
 
   const paths = res.map((el: any) => {
     return {

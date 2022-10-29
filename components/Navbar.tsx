@@ -34,7 +34,7 @@ function Navbar() {
           <div className="flex justify-center">
             <Image
               className="cursor-pointer items-center"
-              src="/assets/PS-Logo.png"
+              src="/assets/new-logo.png"
               alt="perfectsap"
               width="250"
               height="80"
