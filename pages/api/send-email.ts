@@ -83,7 +83,7 @@ export default async function handler(
       message: "Email has been sent successfully.",
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(400).json({
       message: "Something went wrong.",
     });

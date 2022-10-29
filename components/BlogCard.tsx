@@ -13,7 +13,7 @@ function BlogCard(props: any) {
     <div className="grid grid-cols-1 lg:grid-cols-4 bg-white mx-auto shadow-lg">
       {/* image div starts */}
       <div className="w-full h-[200px] lg:h-full lg:col-span-1 relative">
-        <Image src={blog.imageUrl.url} layout="fill" />
+        <Image src={blog.imageUrl.url} layout="fill" alt={blog.title} />
       </div>
       {/* image div starts */}
 

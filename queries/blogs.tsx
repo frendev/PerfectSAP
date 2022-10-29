@@ -17,6 +17,7 @@ export async function getAllBlogs() {
               json
             }
             sys {
+              id
               publishedAt
             }
           }

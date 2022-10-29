@@ -31,15 +31,17 @@ function Navbar() {
       >
         <div className="flex m-auto justify-between items-center h-full w-full px-2 2xl:px-16">
           {/* This div is for logo */}
-          <div className="flex justify-center">
-            <Image
-              className="cursor-pointer items-center"
-              src="/assets/new-logo.png"
-              alt="perfectsap"
-              width="250"
-              height="80"
-            />
-          </div>
+          <Link href="/">
+            <div className="flex justify-center">
+              <Image
+                className="cursor-pointer items-center"
+                src="/assets/new-logo.png"
+                alt="perfectsap"
+                width="250"
+                height="80"
+              />
+            </div>
+          </Link>
 
           {/* This div is for desktop menu's links */}
 

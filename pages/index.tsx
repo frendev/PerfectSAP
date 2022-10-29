@@ -9,18 +9,13 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Perfect SAP</title>
+        <title>Perfect SAP | Home</title>
         <link rel="icon" href="/assets/PerfectSAP.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin=""
-        />
-
-        <meta
-          name="description"
-          content="One stop solution to your all SAP needs."
         />
       </Head>
       <Hero />
