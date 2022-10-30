@@ -3,7 +3,7 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="relative flex items-center justify-center h-screen-2 text-center mt-20 bg-center custom-img">
+    <div className="relative flex items-center justify-center h-screen-2 text-center bg-center custom-img -mt-8">
       {/* overlay */}
       <div className="absolute h-screen-2 left-0 right-0 bottom-0 bg-black/50 z-[2]" />
 

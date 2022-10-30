@@ -4,13 +4,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import SEO from "@bradgarropy/next-seo";
+import Layout from "../components/Layout";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <div>
+      <div className="relative">
         <SEO
           title="Perfect SAP"
           description="One stop solution for all your SAP needs."
@@ -32,9 +33,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             type: "website",
           }}
         ></SEO>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </div>
     </QueryClientProvider>
   );

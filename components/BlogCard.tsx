@@ -35,11 +35,11 @@ function BlogCard(props: any) {
         {/* title and description div ends*/}
 
         {/* date and continue reading div starts*/}
-        <div className="flex flex-col-reverse md:flex-row justify-between gap-x-8">
-          <p className="text-sm text-gray-500 flex-shrink-0">
+        <div className="flex justify-between gap-x-8">
+          <p className="text-sm text-gray-500">
             {dayjs(blog.sys.publishedAt).format("DD MMMM YYYY [at] hh:mm A")}
           </p>
-          <p className="underline underline-offset-2 flex-shrink-0 hidden md:flex">
+          <p className="underline underline-offset-2 hidden md:flex">
             <Link href={`/blogs/${blog.slug}`}>Continue Reading</Link>
             <span>
               <MdOutlineArrowForward size={25} />

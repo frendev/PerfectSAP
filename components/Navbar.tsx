@@ -24,12 +24,12 @@ function Navbar() {
             ? "fixed h-screen left-0 right-0 bottom-0 bg-black/50 z-[2]"
             : "d-none"
         }
-      ></div>
+      />
       <div
         id="/"
         className="fixed left-0 top-0 w-full shadow-xl z-[49] opacity-100 bg-slate-50"
       >
-        <div className="flex m-auto justify-between items-center h-full w-full px-2 2xl:px-16">
+        <div className="flex justify-between items-center w-full px-4 2xl:px-16">
           {/* This div is for logo */}
           <Link href="/">
             <div className="flex justify-center">
