@@ -5,6 +5,12 @@ import error from "../public/assets/error.png";
 function Modal(props: any) {
   let { showModal, closeModalHandler } = props;
 
+  const okayHandler = (e: any) => {
+    console.log(e.isPropagationStopped());
+    e.stopPropagation();
+    closeModalHandler();
+  };
+
   return (
     <div
       onClick={closeModalHandler}
@@ -31,7 +37,7 @@ function Modal(props: any) {
             <div className="text-center flex justify-center mt-4">
               <button
                 type="button"
-                onClick={closeModalHandler}
+                onClick={(e) => okayHandler(e)}
                 className="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-gray-200 rounded-lg font-semibold text-lg mt-4
           md:mt-0 md:order-1"
               >

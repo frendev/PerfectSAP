@@ -20,6 +20,7 @@ function ContactForm() {
   const [showModal, setShowModal] = useState(false);
 
   const sendEmail = (formValues: any) => {
+    console.log("sending email");
     const { firstName, lastName, email, phoneNumber, message } = formValues;
     return axios.post("/api/send-email", {
       firstName,

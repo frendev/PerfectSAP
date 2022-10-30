@@ -10,7 +10,6 @@ import { getAllBlogs, GET_POST_BY_SLUG } from "../../queries/blogs";
 
 export const getStaticPaths = async () => {
   const res = await getAllBlogs();
-  // console.log(res);
 
   const paths = res.map((el: any) => {
     return {
@@ -20,7 +19,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -33,12 +32,15 @@ export const getStaticProps = async (context: any) => {
   return {
     props: {
       blog: data.blogs.items[0],
+      revalidate: 10,
     },
   };
 };
 
 function BlogDetails(props: any) {
   const { blog } = props;
+
+  if (!blog) return <div>loading..</div>;
 
   return (
     <div className="mt-24 space-y-5">

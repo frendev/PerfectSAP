@@ -26,7 +26,7 @@ function Testimonials() {
   };
 
   return (
-    <div className="mt-40 space-y-10 w-4/5 mx-auto">
+    <div className="mt-24 space-y-10 w-4/5 mx-auto">
       <h1 className="text-4xl">Testimonials</h1>
       <div className="grid grid-cols-4">
         {/* left side */}
