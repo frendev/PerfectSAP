@@ -1,16 +1,27 @@
-import React, { useEffect } from "react";
-import FormError from "./FormError";
+import React from "react";
+import { UseFormRegister } from "react-hook-form";
+import { ContactFormValues } from "./ContactForm";
 
-function InputField(props: any) {
-  const {
-    label,
-    minLength,
-    maxLength,
-    fieldErrors,
-    register,
-    pattern,
-    formField,
-  } = props;
+type InputFieldProps = {
+  label: string;
+  minLength?: {
+    value: number;
+    message: string;
+  };
+  maxLength?: {
+    value: number;
+    message: string;
+  };
+  pattern?: {
+    value: RegExp;
+    message: string;
+  };
+  formField: "firstName" | "lastName" | "email" | "phoneNumber" | "message";
+  register: UseFormRegister<ContactFormValues>;
+};
+
+function InputField(props: InputFieldProps) {
+  const { label, minLength, maxLength, register, pattern, formField } = props;
 
   return (
     <div>

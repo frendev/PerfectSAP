@@ -5,6 +5,8 @@ import Head from "next/head";
 
 export async function getStaticProps() {
   const res = await getAllBlogs();
+  console.log(res);
+
   return {
     props: {
       blogs: res,

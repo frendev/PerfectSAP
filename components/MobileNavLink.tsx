@@ -1,7 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
-function MobileNavLink(props: any) {
+type MobileNavLinkProps = {
+  hrefAttr: string;
+  linkText: string;
+  mobileMenuHandler: () => void;
+  children: React.ReactNode;
+};
+
+function MobileNavLink(props: MobileNavLinkProps) {
   const { children, mobileMenuHandler, hrefAttr, linkText } = props;
 
   return (

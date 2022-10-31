@@ -2,7 +2,12 @@ import Image from "next/image";
 import React from "react";
 import error from "../public/assets/error.png";
 
-function Modal(props: any) {
+type ModalProps = {
+  showModal: boolean;
+  closeModalHandler: () => void;
+};
+
+function Modal(props: ModalProps) {
   let { showModal, closeModalHandler } = props;
 
   const okayHandler = (e: any) => {
@@ -22,7 +27,7 @@ function Modal(props: any) {
     >
       <div>
         <div className="text-xl top-0 left-0 bottom-0 right-0 fixed px-4 flex items-center justify-center">
-          <div className="bg-black opacity-50 w-full h-full absolute inset-0"></div>
+          <div className="bg-black opacity-75 w-full h-full absolute inset-0"></div>
 
           <div className="bg-white rounded-lg md:max-w-md md:mx-auto p-4 z-50">
             <div className="flex flex-col items-center space-y-5">

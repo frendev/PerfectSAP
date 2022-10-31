@@ -10,18 +10,26 @@ import Router from "next/router";
 import Modal from "./Modal";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
+export type ContactFormValues = {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  message?: string;
+};
+
 function ContactForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm<ContactFormValues>({ mode: "onChange" });
 
   const [showModal, setShowModal] = useState(false);
 
-  const sendEmail = (formValues: any) => {
-    console.log("sending email");
+  const sendEmail = (formValues: ContactFormValues) => {
     const { firstName, lastName, email, phoneNumber, message } = formValues;
+
     return axios.post("/api/send-email", {
       firstName,
       lastName,
@@ -96,7 +104,6 @@ function ContactForm() {
                 register={register}
                 label="First Name"
                 formField="firstName"
-                fieldErrors={errors}
                 pattern={{
                   value: /^[A-Za-z]*$/,
                   message: "Only Characters are allowed.",
@@ -118,7 +125,6 @@ function ContactForm() {
                 register={register}
                 label="Last Name"
                 formField="lastName"
-                fieldErrors={errors}
                 pattern={{
                   value: /^[A-Za-z]*$/,
                   message: "Only Characters are allowed.",
@@ -144,7 +150,6 @@ function ContactForm() {
               register={register}
               label="Phone Number"
               formField="phoneNumber"
-              fieldErrors={errors}
               pattern={{
                 value: /^[0-9]*$/,
                 message: "Only digits are allowed.",
@@ -166,7 +171,6 @@ function ContactForm() {
               register={register}
               label="Email Address"
               formField="email"
-              fieldErrors={errors}
               pattern={{
                 value: /^\S+@\S+$/i,
                 message: "Email address is invalid",

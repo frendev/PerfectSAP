@@ -28,6 +28,7 @@ export const getStaticProps = async (context: any) => {
     query: GET_POST_BY_SLUG,
     variables: { slug: context.params.slug },
   });
+  console.log(data);
 
   return {
     props: {

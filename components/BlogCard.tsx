@@ -4,10 +4,27 @@ import React from "react";
 import { MdOutlineArrowForward } from "react-icons/md";
 import Image from "next/image";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import { Block, Inline } from "@contentful/rich-text-types";
 
-function BlogCard(props: any) {
+type BlogCardProps = {
+  blog: {
+    imageUrl: {
+      title: string;
+      url: string;
+    };
+    description: {
+      json: Block | Inline;
+    };
+    title: string;
+    slug: string;
+    sys: {
+      publishedAt: string;
+    };
+  };
+};
+
+function BlogCard(props: BlogCardProps) {
   const { blog } = props;
-
   return (
     // outline div of the card
     <div className="grid grid-cols-1 lg:grid-cols-4 bg-white mx-auto shadow-lg">

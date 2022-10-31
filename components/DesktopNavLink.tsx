@@ -1,7 +1,13 @@
 import Link from "next/link";
 import React from "react";
 
-function DesktopLink(props: any) {
+type DesktopLinkProps = {
+  hrefAttr: string;
+  linkText: string;
+  children: React.ReactNode;
+};
+
+function DesktopLink(props: DesktopLinkProps) {
   const { children, linkText, hrefAttr } = props;
   return (
     <>
