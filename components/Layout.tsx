@@ -1,7 +1,11 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-export default function Layout(props: any) {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function Layout(props: LayoutProps) {
   return (
     <div className="flex flex-col justify-between h-screen">
       <Navbar />
