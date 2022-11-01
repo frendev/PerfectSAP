@@ -44,7 +44,7 @@ function BlogDetails(props: any) {
   if (!blog) return <div>loading..</div>;
 
   return (
-    <div className="mt-24 space-y-5">
+    <div className="space-y-5">
       <div className="flex justify-center">
         <p className="md:text-lg uppercase underline underline-offset-2 flex w-4/5">
           <span>

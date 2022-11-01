@@ -87,7 +87,7 @@ function Blogs(props: BlogsListProps) {
             <input
               onChange={(e) => searchHandler(e)}
               className="bg-white text-gray-900 p-3 rounded-lg w-full outline-none"
-              placeholder="Search Blog By Title"
+              placeholder="Type Something...."
             />
           </div>
           <div className="space-y-5">
