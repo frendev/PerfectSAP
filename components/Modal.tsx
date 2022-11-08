@@ -1,6 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import error from "../public/assets/error.png";
+import Image from 'next/image';
+import React from 'react';
+import error from '../public/assets/error.png';
 
 type ModalProps = {
   showModal: boolean;
@@ -11,7 +11,6 @@ function Modal(props: ModalProps) {
   let { showModal, closeModalHandler } = props;
 
   const okayHandler = (e: any) => {
-    console.log(e.isPropagationStopped());
     e.stopPropagation();
     closeModalHandler();
   };
@@ -21,8 +20,8 @@ function Modal(props: ModalProps) {
       onClick={closeModalHandler}
       className={
         showModal
-          ? "text-xl top-0 left-0 bottom-0 right-0 fixed px-4 flex items-center justify-center z-50 transition ease-in-out duration-300 0translate-y-full"
-          : "text-xl top-0 left-0 bottom-0 right-0 fixed px-4 flex items-center justify-center z-50 transition duration-300 -translate-y-full"
+          ? 'text-xl top-0 left-0 bottom-0 right-0 fixed px-4 flex items-center justify-center z-50 transition ease-in-out duration-300 0translate-y-full'
+          : 'text-xl top-0 left-0 bottom-0 right-0 fixed px-4 flex items-center justify-center z-50 transition duration-300 -translate-y-full'
       }
     >
       <div>

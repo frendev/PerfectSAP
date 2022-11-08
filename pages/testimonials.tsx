@@ -30,7 +30,7 @@ function Testimonials() {
       <h1 className="text-4xl">Testimonials</h1>
       <div className="grid grid-cols-4">
         {/* left side */}
-        <div className="col-span-4 md:col-span-2 bg-indigo-700 flex justify-center items-center">
+        <div className="col-span-4 md:col-span-2 bg-indigo-600 flex justify-center items-center">
           <h1 className="text-xl p-4 text-white md:text-4xl text-left md:mx-20 md:p-0">
             What Our Students Are Saying....
           </h1>

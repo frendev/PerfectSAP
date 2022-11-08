@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from "react-icons/ai";
 import { MdPeopleOutline } from "react-icons/md";
-import { BiPhone, BiBook } from "react-icons/bi";
+import { BiPhone, BiBook, BiBookOpen } from "react-icons/bi";
 import { FaQuoteLeft } from "react-icons/fa";
 
 import DesktopLink from "./DesktopNavLink";
@@ -54,6 +54,9 @@ function Navbar() {
             </DesktopLink>
             <DesktopLink hrefAttr="/#contact" linkText="Contact Us">
               <BiPhone className="mr-2" size={30}></BiPhone>
+            </DesktopLink>
+            <DesktopLink hrefAttr="/courses" linkText="Courses">
+              <BiBookOpen className="mr-2" size={30}></BiBookOpen>
             </DesktopLink>
             <DesktopLink hrefAttr="/blogs" linkText="Blogs">
               <BiBook className="mr-2" size={30}></BiBook>

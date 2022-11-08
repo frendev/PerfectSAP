@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.perfectsap.com
+
+# Sitemaps
+Sitemap: https://www.perfectsap.com/sitemap.xml

@@ -1,14 +1,14 @@
-import Image from "next/image";
-import React, { useState } from "react";
-import ContactUsIllustration from "../public/assets/contact.jpg";
-import { useForm } from "react-hook-form";
-import FormError from "./FormError";
-import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
-import InputField from "./InputField";
-import Router from "next/router";
-import Modal from "./Modal";
-import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import ContactUsIllustration from '../public/assets/contact.jpg';
+import { useForm } from 'react-hook-form';
+import FormError from './FormError';
+import axios from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import InputField from './InputField';
+import Router from 'next/router';
+import Modal from './Modal';
+import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 
 export type ContactFormValues = {
   firstName: string;
@@ -23,14 +23,14 @@ function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ContactFormValues>({ mode: "onChange" });
+  } = useForm<ContactFormValues>({ mode: 'onChange' });
 
   const [showModal, setShowModal] = useState(false);
 
   const sendEmail = (formValues: ContactFormValues) => {
     const { firstName, lastName, email, phoneNumber, message } = formValues;
 
-    return axios.post("/api/send-email", {
+    return axios.post('/api/send-email', {
       firstName,
       lastName,
       email,
@@ -40,7 +40,7 @@ function ContactForm() {
   };
 
   const onSuccess = () => {
-    Router.push("/success");
+    Router.push('/success');
   };
   const onError = () => {
     setShowModal(true);
@@ -87,7 +87,6 @@ function ContactForm() {
             <li className="flex flex-col items-center space-y-2">
               <AiOutlinePhone size={30}></AiOutlinePhone>
               <h1>Phone</h1>
-              <p>+91 9987853815</p>
               <p>+91 9967813121</p>
             </li>
           </ul>
@@ -106,15 +105,15 @@ function ContactForm() {
                 formField="firstName"
                 pattern={{
                   value: /^[A-Za-z]*$/,
-                  message: "Only Characters are allowed.",
+                  message: 'Only Characters are allowed.',
                 }}
                 minLength={{
                   value: 1,
-                  message: "Minimum length is 1 Character.",
+                  message: 'Minimum length is 1 Character.',
                 }}
                 maxLength={{
                   value: 50,
-                  message: "Maximum length is 50 Characters.",
+                  message: 'Maximum length is 50 Characters.',
                 }}
               />
               {errors && <FormError message={errors?.firstName?.message} />}
@@ -127,15 +126,15 @@ function ContactForm() {
                 formField="lastName"
                 pattern={{
                   value: /^[A-Za-z]*$/,
-                  message: "Only Characters are allowed.",
+                  message: 'Only Characters are allowed.',
                 }}
                 minLength={{
                   value: 1,
-                  message: "Minimum length is 1 Character.",
+                  message: 'Minimum length is 1 Character.',
                 }}
                 maxLength={{
                   value: 50,
-                  message: "Maximum length is 50 Characters.",
+                  message: 'Maximum length is 50 Characters.',
                 }}
               />
               {errors ? (
@@ -152,15 +151,15 @@ function ContactForm() {
               formField="phoneNumber"
               pattern={{
                 value: /^[0-9]*$/,
-                message: "Only digits are allowed.",
+                message: 'Only digits are allowed.',
               }}
               minLength={{
                 value: 10,
-                message: "Minimum length is 10 digits.",
+                message: 'Minimum length is 10 digits.',
               }}
               maxLength={{
                 value: 10,
-                message: "Maximum length is 10 digits.",
+                message: 'Maximum length is 10 digits.',
               }}
             />
             {errors && <FormError message={errors?.phoneNumber?.message} />}
@@ -173,7 +172,7 @@ function ContactForm() {
               formField="email"
               pattern={{
                 value: /^\S+@\S+$/i,
-                message: "Email address is invalid",
+                message: 'Email address is invalid',
               }}
             />
             {errors && <FormError message={errors?.email?.message} />}
@@ -187,21 +186,21 @@ function ContactForm() {
               className="resize-none bg-gray-100 text-gray-900 mb-3 p-3 rounded-lg focus:outline-none focus:shadow-outline w-full"
               placeholder="Tell us more about your requirements...."
               rows={5}
-              {...register("message")}
+              {...register('message')}
             />
           </div>
 
           {isLoading ? (
             <button
               type="button"
-              className="cursor-not-allowed uppercase text-md font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline opacity-50"
+              className="cursor-not-allowed uppercase text-md font-bold tracking-wide bg-indigo-200 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline opacity-50"
             >
               Submit
             </button>
           ) : (
             <button
               type="submit"
-              className="transition ease-in-out delay-100 uppercase text-md font-bold tracking-wide bg-blue-700  text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline hover:opacity-80"
+              className="transition ease-in-out delay-100 uppercase text-md font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline hover:opacity-80"
             >
               Submit
             </button>

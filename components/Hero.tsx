@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 function Hero() {
   return (
@@ -12,7 +12,7 @@ function Hero() {
         <p className="py-5 text-2xl md:text-3xl underline-offset-5">
           We Pursue Quality
         </p>
-        <button className="bg-blue-700 p-3 text-white text-md rounded-md">
+        <button className="bg-indigo-500 p-3 text-white text-md rounded-md">
           <Link href="/#contact">Contact US</Link>
         </button>
       </div>

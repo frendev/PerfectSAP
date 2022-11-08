@@ -1,32 +1,32 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from 'next';
 import {
   SENDINBLUE_API_KEY,
   SENDINBLUE_TO_EMAIL,
   SENDINBLUE_TO_NAME,
-} from "../../config/envs";
+} from '../../config/envs';
 
-const SibApiV3Sdk = require("sib-api-v3-typescript");
+const SibApiV3Sdk = require('sib-api-v3-typescript');
 
 let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   let { firstName, lastName, email, phoneNumber, message } = req.body;
 
-  if (message === "") {
-    message = "Enquiry Email.";
+  if (message === '') {
+    message = 'Enquiry Email.';
   }
 
   apiInstance.setApiKey(
     SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-    SENDINBLUE_API_KEY
+    SENDINBLUE_API_KEY,
   );
 
   let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
-  sendSmtpEmail.subject = "Enquiry Regarding Perfect SAP";
+  sendSmtpEmail.subject = 'Enquiry Regarding Perfect SAP';
   sendSmtpEmail.htmlContent = `<html>
     <head>
      <style>
@@ -80,12 +80,11 @@ export default async function handler(
 
     return res.status(200).json({
       data: response,
-      message: "Email has been sent successfully.",
+      message: 'Email has been sent successfully.',
     });
   } catch (error) {
-    // console.log(error);
     return res.status(400).json({
-      message: "Something went wrong.",
+      message: 'Something went wrong.',
     });
   }
 }

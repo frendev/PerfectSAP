@@ -1,12 +1,12 @@
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import React from "react";
-import Image from "next/image";
-import dayjs from "dayjs";
-import Link from "next/link";
-import { MdKeyboardBackspace } from "react-icons/md";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import React from 'react';
+import Image from 'next/image';
+import dayjs from 'dayjs';
+import Link from 'next/link';
+import { MdKeyboardBackspace } from 'react-icons/md';
 
-import apolloClient from "../../config/apollo-client-config";
-import { getAllBlogs, GET_POST_BY_SLUG } from "../../queries/blogs";
+import apolloClient from '../../config/apollo-client-config';
+import { getAllBlogs, GET_POST_BY_SLUG } from '../../queries/blogs';
 
 export const getStaticPaths = async () => {
   const res = await getAllBlogs();
@@ -28,7 +28,6 @@ export const getStaticProps = async (context: any) => {
     query: GET_POST_BY_SLUG,
     variables: { slug: context.params.slug },
   });
-  console.log(data);
 
   return {
     props: {
@@ -56,7 +55,7 @@ function BlogDetails(props: any) {
       <div className="grid grid-cols-1 w-3/5 mx-auto space-y-5">
         <h1 className="text-2xl md:text-4xl">{blog.title}</h1>
         <p className="text-sm text-gray-500">
-          {dayjs(blog.sys.publishedAt).format("DD MMMM YYYY [at] hh:mm A")}
+          {dayjs(blog.sys.publishedAt).format('DD MMMM YYYY [at] hh:mm A')}
         </p>
         <div className="relative">
           <Image

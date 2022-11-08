@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import BlogCard from "../components/BlogCard";
-import { getAllBlogs } from "../queries/blogs";
-import Head from "next/head";
-import { Block, Inline } from "@contentful/rich-text-types";
+import React, { useState } from 'react';
+import BlogCard from '../components/BlogCard';
+import { getAllBlogs } from '../queries/blogs';
+import Head from 'next/head';
+import { Block, Inline } from '@contentful/rich-text-types';
 
 //blogs list
 
@@ -43,7 +43,6 @@ type Blog = {
 
 export async function getStaticProps() {
   const res = await getAllBlogs();
-  console.log(res);
 
   return {
     props: {
@@ -55,18 +54,15 @@ export async function getStaticProps() {
 
 function Blogs(props: BlogsListProps) {
   const { blogsList } = props;
-  const [searchBlogByTitle, setSearchBlogByTitle] = useState("");
+  const [searchBlogByTitle, setSearchBlogByTitle] = useState('');
 
   const searchHandler = (e: any) => {
-    console.log(e.target.value);
     setSearchBlogByTitle(e.target.value);
   };
 
   const filteredBlogsList = blogsList.filter((blog: Blog) => {
     return blog.title.toLowerCase().includes(searchBlogByTitle.toLowerCase());
   });
-
-  console.log(filteredBlogsList);
 
   return (
     <>
