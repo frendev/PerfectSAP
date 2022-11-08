@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import BlogCard from '../components/BlogCard';
-import { getAllBlogs } from '../queries/blogs';
+import BlogCard from '../../components/BlogCard';
+import { getAllBlogs } from '../../queries/blogs';
 import Head from 'next/head';
 import { Block, Inline } from '@contentful/rich-text-types';
 

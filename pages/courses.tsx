@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import apolloClient from '../config/apollo-client-config';
 import { GET_ALL_COURSES } from '../queries/courses';
+import Head from 'next/head';
 
 export const getStaticProps = async (context: any) => {
   const { data } = await apolloClient.query({
@@ -45,6 +46,10 @@ function Courses(props: any) {
 
   return (
     <>
+      <Head>
+        <title>Perfect SAP | Courses</title>
+        <link rel="icon" href="/assets/PerfectSAP.ico" />
+      </Head>
       <div className="grid grid-cols-4 w-4/5 mx-auto space-x-5">
         <div className="col-span-1">
           <h1 className="text-white mb-5 p-2 text-xl bg-indigo-500">
@@ -55,10 +60,11 @@ function Courses(props: any) {
               return (
                 <>
                   <p
-                    key={el.sys.id}
-                    className={`flex flex-shrink-0 bg-white p-2 cursor-pointer transition- duration-300 ${
+                    key={el.slug}
+                    className={`flex flex-shrink-0 bg-white p-2 cursor-pointer transition duration-300 
+                    ${
                       router.query.slug === el.slug
-                        ? 'bg-indigo-500 text-white'
+                        ? 'bg-[#6366f1] text-white'
                         : 'text-black'
                     }`}
                     onClick={() => changeCourseHandler(el.slug)}
