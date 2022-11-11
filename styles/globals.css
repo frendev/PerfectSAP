@@ -4,7 +4,7 @@
 
 html {
   font-family: Poppins, sans-serif;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 100px;
   scroll-behavior: smooth;
   scrollbar-width: thin;
 }
@@ -48,6 +48,10 @@ ul {
 
   .body-text {
     @apply text-justify text-base md:text-lg;
+  }
+
+  .heading {
+    @apply text-2xl md:text-3xl;
   }
 
   input {

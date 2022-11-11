@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from "react-icons/ai";
-import { MdPeopleOutline } from "react-icons/md";
-import { BiPhone, BiBook, BiBookOpen } from "react-icons/bi";
-import { FaQuoteLeft } from "react-icons/fa";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from 'react-icons/ai';
+import { MdPeopleOutline } from 'react-icons/md';
+import { BiPhone, BiBook, BiBookOpen } from 'react-icons/bi';
+import { FaQuoteLeft } from 'react-icons/fa';
 
-import DesktopLink from "./DesktopNavLink";
-import MobileNavLink from "./MobileNavLink";
+import DesktopLink from './DesktopNavLink';
+import MobileNavLink from './MobileNavLink';
 
 function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -21,8 +21,8 @@ function Navbar() {
       <div
         className={
           mobileMenu
-            ? "fixed h-screen left-0 right-0 bottom-0 bg-black/50 z-[2]"
-            : "d-none"
+            ? 'fixed h-screen left-0 right-0 bottom-0 bg-black/50 z-[2]'
+            : 'd-none'
         }
       />
       <div
@@ -84,8 +84,8 @@ function Navbar() {
           <div
             className={
               mobileMenu
-                ? "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen bg-gradient-to-r from-white to-slate-200 text-center transition duration-300"
-                : "lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen text-center translate-x-full bg-gradient-to-r from-white to-slate-200 text-white transition duration-300"
+                ? 'lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen bg-gradient-to-r from-white to-slate-200 text-center transition duration-300'
+                : 'lg:hidden text-lg absolute top-0 right-0 bottom-0 flex justify-center items-center w-1/2 h-screen text-center translate-x-full bg-gradient-to-r from-white to-slate-200 text-white transition duration-300'
             }
           >
             <ul>
@@ -106,10 +106,18 @@ function Navbar() {
 
               <MobileNavLink
                 mobileMenuHandler={mobileMenuHandler}
+                hrefAttr="/courses"
+                linkText="Courses"
+              >
+                <MdPeopleOutline className="mr-2" size={30}></MdPeopleOutline>
+              </MobileNavLink>
+
+              <MobileNavLink
+                mobileMenuHandler={mobileMenuHandler}
                 hrefAttr="/#contact"
                 linkText="Contact Us"
               >
-                <BiPhone className="mr-2" size={30}></BiPhone>
+                <BiBookOpen className="mr-2" size={30}></BiBookOpen>
               </MobileNavLink>
 
               <MobileNavLink

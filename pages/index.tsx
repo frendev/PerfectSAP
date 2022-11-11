@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import ContactForm from "../components/ContactForm";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import About from "../components/About";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import ContactForm from '../components/ContactForm';
+import Hero from '../components/Hero';
+import Services from '../components/Services';
+import About from '../components/About';
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="space-y-10">
       <Head>
         <title>Perfect SAP | Home</title>
         <link rel="icon" href="/assets/PerfectSAP.ico" />

@@ -82,10 +82,11 @@ function Blogs(props: BlogsListProps) {
             </label>
             <input
               onChange={(e) => searchHandler(e)}
-              className="bg-white text-gray-900 p-3 rounded-lg w-full outline-none"
+              className="p-3 rounded-lg w-full outline-none input-field"
               placeholder="Type Something...."
             />
           </div>
+
           <div className="space-y-5">
             {filteredBlogsList.map((el: Blog) => {
               return <BlogCard key={el.sys.id} blog={el} />;
