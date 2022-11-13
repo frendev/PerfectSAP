@@ -27,7 +27,7 @@ function Services() {
         <div className="grid">
           <Card img={teaching} alt="B2C Business Model">
             <h1 className="text-center text-xl">B2C Model</h1>
-            <p className="p-5 body-text text-left">
+            <p className="p-5 body-text">
               Every individual student has a different career journey.
               PerfectSAP has been a faithful companion that one can rely on for
               all the educational resources that would make their journey easier
