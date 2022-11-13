@@ -39,12 +39,10 @@ function About() {
             interpersonal skills through our program.
           </p>
 
-          <p className="text-center">
-            <h1>
-              Following process which had made us to always serve you the best
-              amongst our competitors.
-            </h1>
-          </p>
+          <h1>
+            Following process which had made us to always serve you the best
+            amongst our competitors.
+          </h1>
           <br></br>
         </div>
         <div className="grid grid-cols-1 mx-5 sm:mx-0 sm:grid-cols-2 gap-x-10 md:gap-x-10 lg:mx-10 gap-y-10 text-center">
