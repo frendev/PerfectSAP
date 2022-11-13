@@ -96,9 +96,11 @@ function ContactForm() {
           </div>
         </div>
         <div className="lg:col-span-2">
-          <h2 className="underline-effect relative text-2xl md:text-3xl mb-5 py-1 w-max mx-auto text-center">
-            Send Us A Message
-          </h2>
+          <div className="w-fit mx-auto">
+            <h1 className="underline-effect relative text-2xl md:text-3xl mb-5 py-1 mx-auto text-center">
+              Send Us A Message
+            </h1>
+          </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="md:flex md:justify-between md:space-x-4">
               <div className="w-full">

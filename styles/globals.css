@@ -9,6 +9,19 @@ html {
   scrollbar-width: thin;
 }
 
+.circle {
+  clip-path: circle(300px at center -190px);
+}
+
+.circle2 {
+  clip-path: circle(400px at center -290px);
+}
+
+br {
+  margin: 10px;
+  line-height: 5em; /* chrome for instance */
+}
+
 h1,
 h2,
 h3,
@@ -27,6 +40,16 @@ li {
 
 ul {
   padding: inherit;
+}
+
+@layer components {
+  .circle {
+    clip-path: circle(280px at center -200px);
+  }
+
+  .circle-lg {
+    clip-path: circle(450px at center -340px);
+  }
 }
 
 @layer {
