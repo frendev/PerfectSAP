@@ -7,7 +7,7 @@ import About from '../components/About';
 
 const Home: NextPage = () => {
   return (
-    <div className="space-y-10">
+    <>
       <Head>
         <title>Perfect SAP | Home</title>
         <link rel="icon" href="/assets/PerfectSAP.ico" />
@@ -18,11 +18,13 @@ const Home: NextPage = () => {
           crossOrigin=""
         />
       </Head>
-      <Hero />
-      <About />
-      <Services />
-      <ContactForm />
-    </div>
+      <div className="space-y-10">
+        <Hero />
+        <About />
+        <Services />
+        <ContactForm />
+      </div>
+    </>
   );
 };
 
