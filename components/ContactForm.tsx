@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import ContactUsIllustration from '../public/assets/contact.jpg';
 import { useForm } from 'react-hook-form';
 import FormError from './FormError';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import InputField from './InputField';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Modal from './Modal';
 import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 
@@ -24,8 +23,10 @@ function ContactForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<ContactFormValues>({ mode: 'onChange' });
+  const router = useRouter();
 
   const [showModal, setShowModal] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
 
   const sendEmail = (formValues: ContactFormValues) => {
     const { firstName, lastName, email, phoneNumber, message } = formValues;
@@ -40,10 +41,12 @@ function ContactForm() {
   };
 
   const onSuccess = () => {
-    Router.push('/success');
+    setShowModal(true);
+    setEmailSent(true);
   };
   const onError = () => {
     setShowModal(true);
+    setEmailSent(false);
   };
 
   const { isLoading, mutate } = useMutation(sendEmail, {
@@ -211,6 +214,7 @@ function ContactForm() {
               </button>
             )}
             <Modal
+              emailSent={emailSent}
               showModal={showModal}
               closeModalHandler={closeModalHandler}
             />

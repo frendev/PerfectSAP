@@ -41,6 +41,7 @@ function Navbar() {
                 width="250"
                 height="80"
                 objectFit="contain"
+                priority
               />
             </div>
           </Link>

@@ -1,14 +1,16 @@
 import Image from 'next/image';
 import React from 'react';
 import error from '../public/assets/error.png';
+import success from '../public/assets/success.png';
 
 type ModalProps = {
+  emailSent: boolean;
   showModal: boolean;
   closeModalHandler: () => void;
 };
 
 function Modal(props: ModalProps) {
-  let { showModal, closeModalHandler } = props;
+  let { showModal, closeModalHandler, emailSent } = props;
 
   const okayHandler = (e: any) => {
     e.stopPropagation();
@@ -29,15 +31,28 @@ function Modal(props: ModalProps) {
           <div className="bg-black opacity-75 w-full h-full absolute inset-0"></div>
 
           <div className="bg-white rounded-lg md:max-w-md md:mx-auto p-4 z-50">
-            <div className="flex flex-col items-center space-y-5">
-              <Image src={error} width="100" height="100" />
-              <div className="mt-4 md:mt-0 md:ml-6 text-center">
-                <p className="font-bold">Something Went Wrong!</p>
-                <p className="text-gray-700 mt-1">
-                  Sorry, the email could not be sent! Please try again later.
-                </p>
+            {!emailSent ? (
+              <div className="flex flex-col items-center space-y-5">
+                <Image src={error} width="100" height="100" />
+                <div className="mt-4 md:mt-0 md:ml-6 text-center">
+                  <p className="font-bold">Something Went Wrong!</p>
+                  <p className="text-gray-700 mt-1">
+                    Sorry, the email could not be sent! Please try again later.
+                  </p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="flex flex-col items-center space-y-5">
+                <Image src={success} width="100" height="100" />
+                <div className="mt-4 md:mt-0 md:ml-6 text-center">
+                  <p className="font-bold">Thank You!</p>
+                  <p className="text-gray-700 mt-1">
+                    We got your mail! We will get back to you as soon as
+                    possible.
+                  </p>
+                </div>
+              </div>
+            )}
             <div className="text-center flex justify-center mt-4">
               <button
                 type="button"
