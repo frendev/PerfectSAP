@@ -66,12 +66,11 @@ function Blogs(props: BlogsListProps) {
 
   return (
     <>
-      {/* {filteredBlogs && ( */}
+      <Head>
+        <title>Perfect SAP | Blogs</title>
+        <link rel="icon" href="/assets/PerfectSAP.ico" />
+      </Head>
       <div>
-        <Head>
-          <title>Perfect SAP | Blogs</title>
-          <link rel="icon" href="/assets/PerfectSAP.ico" />
-        </Head>
         <div className="w-3/5 mx-auto space-y-5">
           <h1 className="text-2xl md:text-3xl lg:text-4xl">
             Recent Blogs By PerfectSAP
@@ -87,11 +86,17 @@ function Blogs(props: BlogsListProps) {
             />
           </div>
 
-          <div className="space-y-5">
-            {filteredBlogsList.map((el: Blog) => {
-              return <BlogCard key={el.sys.id} blog={el} />;
-            })}
-          </div>
+          {filteredBlogsList.length > 0 ? (
+            <div className="space-y-5">
+              {filteredBlogsList.map((el: Blog) => {
+                return <BlogCard key={el.sys.id} blog={el} />;
+              })}
+            </div>
+          ) : (
+            <div>
+              <h1 className="text-xl">No results found....</h1>
+            </div>
+          )}
         </div>
       </div>
       {/* )} */}

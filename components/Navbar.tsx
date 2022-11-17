@@ -19,15 +19,16 @@ function Navbar() {
     // Desktop Menu
     <>
       <div
+        onClick={mobileMenuHandler}
         className={
           mobileMenu
-            ? 'fixed h-screen left-0 right-0 bottom-0 bg-black/50 z-[2]'
+            ? 'fixed h-screen left-0 right-0 bottom-0 bg-black/50 z-[49]'
             : 'd-none'
         }
       />
       <div
         id="/"
-        className="fixed left-0 top-0 w-full shadow-xl z-[49] opacity-100 bg-slate-50"
+        className="fixed left-0 top-0 w-full shadow-xl z-[49] opacity-100 bg-white"
       >
         <div className="flex justify-between items-center w-full px-4 2xl:px-16">
           {/* This div is for logo */}
@@ -39,6 +40,7 @@ function Navbar() {
                 alt="perfectsap"
                 width="250"
                 height="80"
+                objectFit="contain"
               />
             </div>
           </Link>
@@ -106,16 +108,16 @@ function Navbar() {
 
               <MobileNavLink
                 mobileMenuHandler={mobileMenuHandler}
-                hrefAttr="/courses"
-                linkText="Courses"
+                hrefAttr="/#contact"
+                linkText="Contact Us"
               >
-                <MdPeopleOutline className="mr-2" size={30}></MdPeopleOutline>
+                <BiPhone className="mr-2" size={30}></BiPhone>
               </MobileNavLink>
 
               <MobileNavLink
                 mobileMenuHandler={mobileMenuHandler}
-                hrefAttr="/#contact"
-                linkText="Contact Us"
+                hrefAttr="/courses"
+                linkText="Courses"
               >
                 <BiBookOpen className="mr-2" size={30}></BiBookOpen>
               </MobileNavLink>
